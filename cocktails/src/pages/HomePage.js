@@ -1,10 +1,13 @@
 import React from 'react'
+import CocktailCarousel from '../components/CocktailCarousel'
 
 function HomePage() {
+
+
+
   return (
     <div>
-      <h1>HomePage</h1>
-      <p>wow this is a lot of nothing</p>
+      <CocktailCarousel />
     </div>
   )
 }
