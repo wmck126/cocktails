@@ -7,7 +7,7 @@ function HomePage() {
 
   return (
     <div>
-      <CocktailCarousel />
+      {<CocktailCarousel />}
     </div>
   )
 }
