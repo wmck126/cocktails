@@ -41,27 +41,28 @@ function CocktailCarousel() {
   }, [])
 
   return (
-    <div className='container'>
-      <div className='card-container'>
-      <FontAwesomeIcon
-        onClick={slideLeft}
-        className="leftBtn"
-        icon={faChevronLeft}
-      />
-      <FontAwesomeIcon
-        onClick={slideRight}
-        className="rightBtn"
-        icon={faChevronRight}
-      />
+    <>
+    <div className='carousel carousel-dark slide' data-bs-ride="carousel">
+      <div className='carousel-inner'>
+      
       {loading ? <h3>loading...</h3> 
       : data.flat().map((drink, n) => {
-          let position = n > index ? "nextCard" 
-            : n === index ? "activeCard" : "prevCard"
+          let position = n === 0 ? "" : "active"
         return(
           <CocktailCard {...drink} cardStyle={position}/>
         )})}
       </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+  </>
   )
 }
 
