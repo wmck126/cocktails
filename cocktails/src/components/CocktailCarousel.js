@@ -1,28 +1,40 @@
-import React from 'react'
+import {useState, useCallback, useEffect} from 'react'
+import CocktailCard from './cocktailCard/CocktailCard'
+import axios from 'axios'
+import './cocktailCard/CocktailCard.css'
+
 
 function CocktailCarousel() {
 
-  let cocktailObj = []
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([])
 
-  for(let i = 0; i <= 10; i++){
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then(r => r.json())
-    .then(cocktail => cocktailObj.push(cocktail))
-  }
+  const url =  'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
-  console.log(cocktailObj)
+  const fetchCocktails = useCallback(() => {
+    setLoading(true)
+    for(let i=0; i<4; i++){
+      axios.get(url)
+      .then(res => {
+        setData(res.data.drinks)
+      })
+      .catch(e=> console.error(e))
+    }
+    setLoading(false)
+  }, [])
+
+  useEffect(() => {
+      fetchCocktails()
+  }, [fetchCocktails])
+
+  
   return (
-    <div>
-      {cocktailObj.map((cocktail) => {
-      console.log(cocktail.strDrink)
-      return(
-        <div>
-          <h1>hi</h1>
-          <img src={cocktail.strDrinkThumb} alt="cocktail img"/>
-          <h5>{cocktail.strDrink}</h5>
-        </div>
-      )})}
-
+    <div className='app'>
+      <div className='container'>
+      {loading ? <h3>loading...</h3> : data.map(drink => (
+        <CocktailCard {...drink} />
+      ))}
+      </div>
     </div>
   )
 }
