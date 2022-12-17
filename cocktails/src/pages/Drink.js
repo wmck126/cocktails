@@ -21,15 +21,33 @@ function Drink({drink}) {
   fetchCocktails()
   }, [url])
   
-  console.log(url)
+  /*
+    Have 2 lists one with ingredients, other with measurements, 1 - 15
+    Need to link 2 lists where key: ingredient and value is measurement
+    if key/value is null end loop
+  */
+    
+    
+
+
+
 
   return (
     <div>
-      <h1>drink</h1>
       {loading ? <h3>loading...</h3> 
-        : data.flat().map((drink) => (
-      <h3>{drink.strDrink}</h3>
-      )
+        : data.flat().map((drink) => {
+            for(let i=1; i < 16; i++){
+              console.log(drink.strIngredient+`${i}`)
+            }
+          return(
+          <div>
+            <img src={drink.strDrinkThumb} alt="cocktail" />
+            <h3>{drink.strDrink}</h3>
+            <ul>
+              
+            </ul>
+          </div>
+      )}
     )}
   </div>
   )
