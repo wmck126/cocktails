@@ -1,0 +1,11 @@
+.homepage-banner {
+  width: 100%;
+  height: auto;
+}
+
+#search-bar {
+  position: absolute;
+  right: 1rem;
+  width: 15rem;
+  height: auto;
+}
