@@ -1,0 +1,22 @@
+.carousel{
+  position: relative;
+  margin: 0 auto;
+  height: 40%;
+  width: 40%;
+  
+}
+.carousel img {
+  margin: 0 auto;
+  width: 40%;
+  height: 40%
+}
+
+.carousel h2 {
+  margin: 0 auto;
+  font-size: 3vw;
+}
+
+.carousel-indicators {
+  width: 10vw;
+  margin: 0 auto
+}

@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Carousel from 'react-bootstrap/Carousel'
+import './Carousel.css'
 
 
 
@@ -36,14 +37,20 @@ function CocktailCarousel() {
   fetchCocktails()
   }, [])
 
+  
+
   return (
     <div>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
       {loading ? <h3>loading...</h3> 
       : data.flat().map((drink) => {
         return(
-          <Carousel.Item key={drink.idDrink}>
-            <img src={drink.strDrinkThumb} alt={drink.strDrink} className="d-block w-100"/>
+          <Carousel.Item key={drink.idDrink} >
+            <img 
+              src={drink.strDrinkThumb} 
+              alt={drink.strDrink} 
+              className="d-block w-100" 
+            />
             <Carousel.Caption>
               <h2>{drink.strDrink}</h2>
             </Carousel.Caption>
