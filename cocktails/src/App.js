@@ -4,9 +4,12 @@ import HomePage from './pages/HomePage'
 import SearchResult from './pages/SearchResult'
 import Drink from './pages/Drink'
 import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+
+import './pages/Homepage.css'
 
 
 function App() {
@@ -29,23 +32,28 @@ function App() {
   
   return (
     <div>
-      <Navbar bg="dark" expand="lg" variant="dark">
-      <Navbar.Brand href="/">Drink Finder</Navbar.Brand>
-        <div id="search-bar">
-        <Form 
-          className="d-flex" 
-          onSubmit={handleSubmit}
-          onChange={handleSearch}
-          >
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-        </Form>
-        </div> 
+      <Navbar bg="dark" expand="lg" variant="dark" fixed='top'>
+        
+          <Navbar.Brand href="/">Drink Finder</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" className='toggle'/>
+            <Navbar.Collapse id="responsive-navbar-nav">
+            <Container className='d-flex justify-content-end'>
+              <Form 
+                className="d-flex" 
+                onSubmit={handleSubmit}
+                onChange={handleSearch}
+                >
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button variant="outline-success">Search</Button>
+              </Form>
+              </Container>
+            </Navbar.Collapse>
+        
       </Navbar>
       <Routes>
         <Route path="/" exact element={<HomePage />}/>
