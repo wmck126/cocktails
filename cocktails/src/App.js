@@ -15,7 +15,7 @@ import './pages/Homepage.css'
 function App() {
   //sets the drinkID
   const [drink, setDrink] = useState(0)
-  //sets the search bar query
+  //sets the search bar 
   const [search, setSearch] = useState("")
   const navigate = useNavigate()
 
