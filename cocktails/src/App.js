@@ -4,12 +4,14 @@ import HomePage from './pages/HomePage'
 import SearchResult from './pages/SearchResult'
 import Drink from './pages/Drink'
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import Ingredients from './pages/Ingredients'
+import { Nav } from 'react-bootstrap'
 
 import './pages/Homepage.css'
+
 
 
 function App() {
@@ -32,33 +34,37 @@ function App() {
   
   return (
     <div>
-      <Navbar bg="dark" expand="lg" variant="dark" fixed='top'>
+      <Navbar bg="dark" expand="lg" variant="dark">
         
           <Navbar.Brand href="/">Drink Finder</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" className='toggle'/>
             <Navbar.Collapse id="responsive-navbar-nav">
-            <Container className='d-flex justify-content-end'>
-              <Form 
-                className="d-flex" 
-                onSubmit={handleSubmit}
-                onChange={handleSearch}
-                >
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-              </Form>
-              </Container>
+              <Nav className='ml-auto'>
+              <Nav.Link href="/ingredients">Ingredients</Nav.Link>
+              <Nav.Link href="/random">I'm Feeling Lucky</Nav.Link>
+              </Nav>
+                <Nav className='ms-auto'>
+                  <Form 
+                    className="d-flex" 
+                    onSubmit={handleSubmit}
+                    onChange={handleSearch}
+                    >
+                      <Form.Control
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                      />
+                      <Button variant="outline-success">Search</Button>
+                  </Form>
+              </Nav>
             </Navbar.Collapse>
-        
       </Navbar>
       <Routes>
         <Route path="/" exact element={<HomePage />}/>
         <Route element ={<SearchResult query={search} setDrink={(e) => setDrink(e)}/>} path ="/result" />
         <Route element ={<Drink drink={drink}/>} path = "/drink" />
+        <Route element={<Ingredients />} path="/ingredients" />
       </Routes>
     </div>
   )

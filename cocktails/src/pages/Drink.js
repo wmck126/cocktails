@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import './drink.css'
 
 function Drink({drink}) {
 
@@ -21,10 +22,8 @@ function Drink({drink}) {
   fetchCocktails()
   }, [url])
 
-  
-
   return (
-    <div>
+    <div className='recipe-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => {
           let index = 1
@@ -33,13 +32,10 @@ function Drink({drink}) {
             ingredientArray.push({name: drink['strIngredient' + index], amount: drink['strMeasure' + index] ? drink['strMeasure' + index]: 'A dash'})
             index++
           }
-          
-            console.log(ingredientArray)
-          
           return(
-          <div>
+          <div className='recipe-card'>
             <img src={drink.strDrinkThumb} alt="cocktail" />
-            <h3>{drink.strDrink}</h3>
+            <h2>{drink.strDrink}</h2>
               <ul>
               {ingredientArray.map((ingredient) => (
                 <li>{ingredient.amount} of {ingredient.name}</li>

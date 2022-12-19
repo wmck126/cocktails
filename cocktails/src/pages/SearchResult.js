@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import CocktailCard from '../components/CocktailCard'
+import "./searchResult.css"
 
 function SearchResult({query, setDrink}) {
   const [loading, setLoading] = useState(false)
@@ -23,12 +24,14 @@ function SearchResult({query, setDrink}) {
   }, [url])
 
   return (
-    <div>
+    <div className='grid-container'>
+    <div className='drink-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => (
           <CocktailCard {...drink} setDrink={setDrink} />
           )
         )}
+    </div>
     </div>
   )
 }

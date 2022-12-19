@@ -1,0 +1,10 @@
+.recipe-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto
+}
+
+.recipe-card {
+    text-align: center;
+}
