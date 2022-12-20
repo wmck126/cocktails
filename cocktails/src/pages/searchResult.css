@@ -1,20 +1,63 @@
 .drink-container {
-  padding: 8rem;
-  display: grid;
-  grid-template-columns:  repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3rem;
-  margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  min-width: 780px;
+  padding-top:30px;
+  padding-bottom: 30px;
+  width: 100%;
+  height:100%;
 }
 
 
 .drink-card {
-  margin-top: 10px;
+  position: relative;
+  background-color: #FFFFFF;
+  height: 450px;
+  width: 240px;
+  margin: 10px;
+  overflow: hidden;
+  cursor: pointer;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
   transition: height 0.3s, box-shadow 0.3s
 }
 
+.drink-card > img {
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  height: 300px;
+  min-width: 100%;
+  transition: height 0.3s, opacity 0.3s;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  height: 130px;
+  padding: 10px 15px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-title {
+  font-family: serif;
+}
+
+.card-text {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7)
+}
+
 .drink-card:hover {
-  height: 410px;
+  height: 475px;
   box-shadow: 20px 20px 40px 0px rgba(0,0,0,0.5)
+}
+
+.drink-card:hover > img{
+  height:475px;
+  opacity: 0.3
 }
