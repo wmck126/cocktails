@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
+import '../pages/searchResult.css'
 
 function CocktailCard({idDrink, strDrink, strDrinkThumb, setDrink, strCategory, strAlcoholic}) {
 
@@ -14,7 +15,7 @@ function CocktailCard({idDrink, strDrink, strDrinkThumb, setDrink, strCategory, 
   }
   
   return (
-    <Card style={{ width: '18rem' }} id={idDrink}>
+    <Card style={{ width: '18rem' }} id={idDrink} className='drink-card'>
       <Card.Img variant="top" src={strDrinkThumb} />
       <Card.Body>
         <Card.Title>{strDrink}</Card.Title>

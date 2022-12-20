@@ -2,9 +2,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px auto
+    margin: 10px auto;
+    height: auto;
+    width: 65vw;
 }
 
 .recipe-card {
     text-align: center;
 }
+
+.recipe-card > img {
+    height: auto;
+    width: 65vw;
+    border-radius: 1rem;
+}
+
+.recipe-card > h5 {
+    border-bottom: black dashed 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

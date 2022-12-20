@@ -11,6 +11,7 @@ import Ingredients from './pages/Ingredients'
 import { Nav } from 'react-bootstrap'
 
 import './pages/Homepage.css'
+import FeelinLucky from './pages/FeelinLucky'
 
 
 
@@ -35,7 +36,6 @@ function App() {
   return (
     <div>
       <Navbar bg="dark" expand="lg" variant="dark">
-        
           <Navbar.Brand href="/">Drink Finder</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" className='toggle'/>
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -55,7 +55,7 @@ function App() {
                         className="me-2"
                         aria-label="Search"
                       />
-                      <Button variant="outline-success">Search</Button>
+                      <Button variant="outline-success" onClick={handleSubmit}>Search</Button>
                   </Form>
               </Nav>
             </Navbar.Collapse>
@@ -65,6 +65,7 @@ function App() {
         <Route element ={<SearchResult query={search} setDrink={(e) => setDrink(e)}/>} path ="/result" />
         <Route element ={<Drink drink={drink}/>} path = "/drink" />
         <Route element={<Ingredients />} path="/ingredients" />
+        <Route element={<FeelinLucky />} path="/random" />
       </Routes>
     </div>
   )

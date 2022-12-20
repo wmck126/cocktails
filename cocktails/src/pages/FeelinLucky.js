@@ -1,26 +1,29 @@
-import {useEffect, useState} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 import './drink.css'
 
-function Drink({drink}) {
 
-  const [loading, setLoading] = useState(false)
+function FeelinLucky() {
+  //sets loading/data for fetch req
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink}`
+  //api url
+  const url =  'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
+  //fetches the items for the carousel
   useEffect(() => {
     const fetchCocktails = () => {
-    setLoading(true)
+      setLoading(true)
       axios.get(url)
       .then(res => {
         setData((og) => [...og, res.data.drinks])
       })
       .catch(e=> console.error(e))
       .finally(setLoading(false))
-  }
+    }
   fetchCocktails()
-  }, [url])
+  }, [])
 
   return (
     <div className='recipe-container'>
@@ -33,7 +36,7 @@ function Drink({drink}) {
             index++
           }
           return(
-            <div className='recipe-card'>
+          <div className='recipe-card'>
             <img src={drink.strDrinkThumb} alt="cocktail" />
             <h2>{drink.strDrink}</h2>
             <h5>Ingredients</h5>
@@ -52,4 +55,4 @@ function Drink({drink}) {
   )
 }
 
-export default Drink
+export default FeelinLucky

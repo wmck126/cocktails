@@ -24,14 +24,12 @@ function SearchResult({query, setDrink}) {
   }, [url])
 
   return (
-    <div className='grid-container'>
     <div className='drink-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => (
           <CocktailCard {...drink} setDrink={setDrink} />
           )
         )}
-    </div>
     </div>
   )
 }
