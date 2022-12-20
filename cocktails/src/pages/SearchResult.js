@@ -27,7 +27,7 @@ function SearchResult({query, setDrink}) {
     <div className='drink-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => (
-          <CocktailCard {...drink} setDrink={setDrink} />
+          <CocktailCard {...drink} setDrink={setDrink} key={drink.id}/>
           )
         )}
     </div>

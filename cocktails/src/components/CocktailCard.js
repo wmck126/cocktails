@@ -28,9 +28,12 @@ function CocktailCard({idDrink, strDrink, strDrinkThumb, setDrink, strCategory, 
         src={strDrinkThumb} 
         onClick={(e) => navToDrinkImg(e)}
       />
-      <div onClick={(e) => navToDrinkBody(e)} className="card-footer">
-        <h4 className='card-title'>{strDrink}</h4>
-        <p className='card-text'>
+      <div 
+        onClick={(e) => navToDrinkBody(e)} 
+        className="card-footer"
+      >
+        <h4 className='card-title' >{strDrink}</h4>
+        <p className='card-text' >
           {strCategory}<br></br>{strAlcoholic}
         </p>
       </div>
