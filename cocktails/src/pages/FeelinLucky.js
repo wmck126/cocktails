@@ -35,19 +35,23 @@ function FeelinLucky() {
             ingredientArray.push({name: drink['strIngredient' + index], amount: drink['strMeasure' + index] ? drink['strMeasure' + index]: 'A dash'})
             index++
           }
+          let splitInstructions = drink.strInstructions.split(/[.]/)
           return(
-          <div className='recipe-card'>
-            <img src={drink.strDrinkThumb} alt="cocktail" />
-            <h2>{drink.strDrink}</h2>
-            <h5>Ingredients</h5>
-              <ul>
-                <li>Best served in a {drink.strGlass}</li>
-              {ingredientArray.map((ingredient) => (
-                <li>{ingredient.amount} of {ingredient.name}</li>
-              ))}
-              </ul>
-              <h5>Instructions</h5>
-              <p className='instructions'>{drink.strInstructions}</p>
+            <div className='recipe-card'>
+              <h1 className='drink-title'>{drink.strDrink}</h1>
+              <img src={drink.strDrinkThumb} alt="cocktail" />
+              <h5 className='ingredient-title'>Ingredients</h5>
+                <ul className='ingredients'>
+                  <li>Best served in a {drink.strGlass}</li>
+                {ingredientArray.map((ingredient) => (
+                  <li>{ingredient.amount} of {ingredient.name}</li>
+                ))}
+                </ul>
+                <h5 className='instructions-title'>Instructions</h5>
+                <ol className='instructions'>
+                  {splitInstructions.map((drink) => drink === "" ? null : (
+                    <li className='instruction-step'>{drink}</li>))}
+                </ol>
           </div>
       )}
     )}

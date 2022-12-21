@@ -7,6 +7,23 @@
 }
 
 .navbar-brand {
-  font-size:calc(12px + 2.5vw);
-  margin-left: 1vw;
+  font-size:min(max(16px, 2vw), 30px);
+  margin-left: 2vw;
+}
+
+.toggle {
+  margin-right: 5px
+}
+
+.nav-link {
+  margin-left: 10px
+}
+
+.d-flex {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#search-bar{
+  margin-right: 10px
 }

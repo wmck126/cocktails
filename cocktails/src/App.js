@@ -45,6 +45,7 @@ function App() {
               </Nav>
                 <Nav className='ms-auto'>
                   <Form 
+                    id='search-bar'
                     className="d-flex" 
                     onSubmit={handleSubmit}
                     onChange={handleSearch}
