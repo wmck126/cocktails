@@ -12,6 +12,7 @@ import { Nav } from 'react-bootstrap'
 
 import './pages/Homepage.css'
 import FeelinLucky from './pages/FeelinLucky'
+import IngredientList from './pages/IngredientList'
 
 
 
@@ -56,7 +57,7 @@ function App() {
                         className="me-2"
                         aria-label="Search"
                       />
-                      <Button variant="outline-success" onClick={handleSubmit}>Search</Button>
+                      <Button variant="btn btn-dark" onClick={handleSubmit}>Search</Button>
                   </Form>
               </Nav>
             </Navbar.Collapse>
@@ -65,7 +66,7 @@ function App() {
         <Route path="/" exact element={<HomePage />}/>
         <Route element ={<SearchResult query={search} setDrink={(e) => setDrink(e)}/>} path ="/result" />
         <Route element ={<Drink drink={drink}/>} path = "/drink" />
-        <Route element={<Ingredients />} path="/ingredients" />
+        <Route element={<IngredientList />} path="/ingredients" />
         <Route element={<FeelinLucky />} path="/random" />
       </Routes>
     </div>
