@@ -7,12 +7,12 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-import Ingredients from './pages/Ingredients'
 import { Nav } from 'react-bootstrap'
 
 import './pages/Homepage.css'
 import FeelinLucky from './pages/FeelinLucky'
 import IngredientList from './pages/IngredientList'
+import Ingredients from './pages/Ingredients'
 
 
 
@@ -21,6 +21,8 @@ function App() {
   const [drink, setDrink] = useState(0)
   //sets the search bar 
   const [search, setSearch] = useState("")
+  const [ingredient, setIngredient] = useState("")
+
   const navigate = useNavigate()
 
 
@@ -66,7 +68,8 @@ function App() {
         <Route path="/" exact element={<HomePage />}/>
         <Route element ={<SearchResult query={search} setDrink={(e) => setDrink(e)}/>} path ="/result" />
         <Route element ={<Drink drink={drink}/>} path = "/drink" />
-        <Route element={<IngredientList />} path="/ingredients" />
+        <Route element={<IngredientList setIngredient={(e) => setIngredient(e)}/>} path="/ingredients" />
+        <Route element={<Ingredients ingredient={ingredient}/>} path="ing" />
         <Route element={<FeelinLucky />} path="/random" />
       </Routes>
     </div>

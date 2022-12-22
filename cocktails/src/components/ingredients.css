@@ -15,3 +15,7 @@
 .ingredient-title {
   text-align: center;
 }
+
+.ingredient-card {
+  cursor: pointer;
+}

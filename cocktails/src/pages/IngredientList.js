@@ -4,7 +4,7 @@ import IngredientCard from '../components/IngredientCard'
 import '../components/ingredients.css'
 
 
-function IngredientList() {
+function IngredientList({setIngredient}) {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
 
@@ -27,7 +27,7 @@ function IngredientList() {
     <div className='ingredient-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => (
-          <IngredientCard {...drink} />
+          <IngredientCard {...drink} setIngredient={setIngredient} />
         ))}
     </div>
   )
