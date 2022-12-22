@@ -1,0 +1,37 @@
+import {useEffect, useState} from 'react'
+import axios from 'axios'
+import CocktailCard from '../components/CocktailCard'
+import "./searchResult.css"
+
+function IngredientSearchResult({ingSearch, setDrink}) {
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([])
+
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingSearch}`
+
+
+  useEffect(() => {
+    const fetchCocktails = () => {
+    setLoading(true)
+      axios.get(url)
+      .then(res => {
+        setData((og) => [...og, res.data.drinks])
+      })
+      .catch(e=> console.error(e))
+      .finally(setLoading(false))
+  }
+  fetchCocktails()
+  }, [url])
+
+  return (
+    <div className='drink-container'>
+      {loading ? <h3>loading...</h3> 
+        : data.flat().map((drink) => (
+          <CocktailCard {...drink} setDrink={setDrink} key={drink.id}/>
+          )
+        )}
+    </div>
+  )
+}
+
+export default IngredientSearchResult

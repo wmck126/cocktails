@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
-  min-width: 780px;
+  min-width: 500px;
   padding-top:30px;
   padding-bottom: 30px;
   width: 100%;
@@ -14,8 +14,30 @@
 
 .ingredient-title {
   text-align: center;
+  font-family: serif;
 }
 
 .ingredient-card {
   cursor: pointer;
 }
+
+.ingredient-card:hover {
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  transition: height 0.3s, box-shadow 0.3s
+}
+
+.ingredient-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vw;
+}
+
+.ingredient-page-desc {
+  margin-top: 5vw;
+}
+

@@ -13,6 +13,7 @@ import './pages/Homepage.css'
 import FeelinLucky from './pages/FeelinLucky'
 import IngredientList from './pages/IngredientList'
 import Ingredients from './pages/Ingredients'
+import IngredientSearchResult from './pages/IngredientSearchResult'
 
 
 
@@ -22,6 +23,7 @@ function App() {
   //sets the search bar 
   const [search, setSearch] = useState("")
   const [ingredient, setIngredient] = useState("")
+  const [ingSearch, setIngSearch] = useState("")
 
   const navigate = useNavigate()
 
@@ -35,16 +37,31 @@ function App() {
     setSearch(e.target.value)
   }
 
+  const handleNavIng = (e) => {
+    e.preventDefault()
+    navigate('/ingredients')
+  }
+
+  const handleNavRando = (e) => {
+    e.preventDefault()
+    navigate('/random')
+  }
+
+  const handleNavHome = (e) => {
+    e.preventDefault()
+    navigate('/')
+  }
+
   
   return (
     <div>
       <Navbar bg="dark" expand="lg" variant="dark">
-          <Navbar.Brand href="/">Drink Finder</Navbar.Brand>
+          <Navbar.Brand onClick={handleNavHome} className="navbar-brand">Drink Finder</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" className='toggle'/>
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className='ml-auto'>
-              <Nav.Link href="/ingredients">Ingredients</Nav.Link>
-              <Nav.Link href="/random">I'm Feeling Lucky</Nav.Link>
+              <Nav.Link onClick={handleNavIng}>Ingredients</Nav.Link>
+              <Nav.Link onClick={handleNavRando}>I'm Feeling Lucky</Nav.Link>
               </Nav>
                 <Nav className='ms-auto'>
                   <Form 
@@ -69,7 +86,8 @@ function App() {
         <Route element ={<SearchResult query={search} setDrink={(e) => setDrink(e)}/>} path ="/result" />
         <Route element ={<Drink drink={drink}/>} path = "/drink" />
         <Route element={<IngredientList setIngredient={(e) => setIngredient(e)}/>} path="/ingredients" />
-        <Route element={<Ingredients ingredient={ingredient}/>} path="ing" />
+        <Route element={<Ingredients ingredient={ingredient} setIngSearch={setIngSearch}/>} path="ing" />
+        <Route element={<IngredientSearchResult ingSearch={ingSearch} setDrink={(e) => setDrink(e)} />} path='/ingsearch' />
         <Route element={<FeelinLucky />} path="/random" />
       </Routes>
     </div>

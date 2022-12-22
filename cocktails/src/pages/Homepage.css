@@ -8,6 +8,7 @@
 
 .navbar-brand {
   font-size:min(max(16px, 2vw), 30px);
+  cursor: pointer;
   margin-left: 2vw;
 }
 
