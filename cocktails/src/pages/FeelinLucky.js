@@ -40,7 +40,7 @@ function FeelinLucky() {
             <div className='recipe-card'>
               <h1 className='drink-title'>{drink.strDrink}</h1>
               <img src={drink.strDrinkThumb} alt="cocktail" />
-              <h5 className='ingredient-title'>Ingredients</h5>
+              <h5 className='ingredients-title'>Ingredients</h5>
                 <ul className='ingredients'>
                   <li>Best served in a {drink.strGlass}</li>
                 {ingredientArray.map((ingredient) => (

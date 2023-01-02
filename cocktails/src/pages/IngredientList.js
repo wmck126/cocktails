@@ -23,12 +23,16 @@ function IngredientList({setIngredient}) {
   fetchCocktails()
   }, [url])
 
+  
   return (
+    <div>
+      
     <div className='ingredient-container'>
       {loading ? <h3>loading...</h3> 
         : data.flat().map((drink) => (
           <IngredientCard {...drink} setIngredient={setIngredient} />
         ))}
+    </div>
     </div>
   )
 }

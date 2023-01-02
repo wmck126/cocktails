@@ -1,9 +1,26 @@
 .homepage-banner {
   width: 100%;
   max-width: 2440px;
-  height: auto;
+  height: 20%;
   display: block;
   margin: auto auto
+}
+
+#homepage-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vw;
+  margin-bottom: 10vw;
+}
+
+#homepage-title > h1 {
+  font-size: min(5vw, 42px)
+}
+
+#homepage-title > h4 {
+  font-size: min(3vw, 36px)
 }
 
 .navbar-brand {
@@ -27,4 +44,9 @@
 
 #search-bar{
   margin-right: 10px
+}
+
+body {
+  background: url(../img/classy_fabric.jpg) repeat 0 0;
+  color: #FAF9F6
 }

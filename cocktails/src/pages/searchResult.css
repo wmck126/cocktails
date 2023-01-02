@@ -14,7 +14,7 @@
 
   .drink-card {
     position: relative;
-    background-color: #FFFFFF;
+    background-color: #FAF9F6;
     height: 450px;
     width: 240px;
     margin: 10px;
@@ -45,6 +45,8 @@
 
   .card-title {
     font-family: serif;
+    color: rgba(0, 0, 0, 0.7)
+
   }
 
   .card-text {

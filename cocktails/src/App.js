@@ -1,8 +1,5 @@
 import {useState} from 'react'
 import {Routes, Route} from "react-router-dom"
-import HomePage from './pages/HomePage'
-import SearchResult from './pages/SearchResult'
-import Drink from './pages/Drink'
 import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -14,6 +11,9 @@ import FeelinLucky from './pages/FeelinLucky'
 import IngredientList from './pages/IngredientList'
 import Ingredients from './pages/Ingredients'
 import IngredientSearchResult from './pages/IngredientSearchResult'
+import HomePage from './pages/HomePage'
+import SearchResult from './pages/SearchResult'
+import Drink from './pages/Drink'
 
 
 
